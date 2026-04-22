@@ -233,8 +233,8 @@
             }
 
             await navigator.share({
-                title: "ZipDrop Archive",
-                text: "Compressed with ZipDrop",
+                title: "ZipIt Archive",
+                text: "Compressed with ZipIt",
                 files: [shareFile]
             });
 
@@ -247,11 +247,11 @@
          * @returns {string} Sanitized output name.
          */
         function sanitizeOutputName(name) {
-            var cleaned = String(name || "zipdrop-archive")
+            var cleaned = String(name || "zipit-archive")
                 .trim()
                 .replace(/[\\/:*?"<>|]/g, "-")
                 .replace(/\s+/g, "-");
-            return cleaned || "zipdrop-archive";
+            return cleaned || "zipit-archive";
         }
 
         /**
@@ -503,7 +503,7 @@
                 setProgress(0);
 
                 var files = fileHandler.getFiles();
-                var name = outputName ? outputName.value : "zipdrop-archive";
+                var name = outputName ? outputName.value : "zipit-archive";
 
                 var result = await compressionService.compressFiles(files, name, function(percent) {
                     setProgress(percent);
@@ -814,7 +814,14 @@
          */
         function applySavedTheme() {
             var root = document.documentElement;
-            var storedTheme = localStorage.getItem("zipdrop-theme");
+            var storedTheme = localStorage.getItem("zipit-theme");
+            if (!storedTheme) {
+                storedTheme = localStorage.getItem("zipdrop-theme");
+                if (storedTheme) {
+                    localStorage.setItem("zipit-theme", storedTheme);
+                    localStorage.removeItem("zipdrop-theme");
+                }
+            }
             var theme = storedTheme === "dark" ? "dark" : "light";
             root.setAttribute("data-theme", theme);
             updateThemeButtonLabel(theme);
@@ -828,7 +835,7 @@
             var current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
             var next = current === "dark" ? "light" : "dark";
             root.setAttribute("data-theme", next);
-            localStorage.setItem("zipdrop-theme", next);
+            localStorage.setItem("zipit-theme", next);
             updateThemeButtonLabel(next);
         }
 

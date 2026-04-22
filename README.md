@@ -1,13 +1,13 @@
-# ZipDrop-web
+# ZipIt-web
 
 > Browser-based ZIP compression and extraction. No backend. No installs. No uploads.
 
-![ZipDrop-web](https://img.shields.io/badge/client--side-only-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![No Build](https://img.shields.io/badge/build-none-orange)
+![ZipIt-web](https://img.shields.io/badge/client--side-only-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![No Build](https://img.shields.io/badge/build-none-orange)
 
 
 **A zero-dependency, zero-server ZIP tool that lives entirely in your browser.**
 
-ZipDrop-web does something browsers were never supposed to do well — it compresses and extracts files at native speed, entirely on your device, with no backend, no cloud, and no waiting. Open the page, drop your files, done.
+ZipIt-web does something browsers were never supposed to do well — it compresses and extracts files at native speed, entirely on your device, with no backend, no cloud, and no waiting. Open the page, drop your files, done.
 
 ---
 
@@ -15,7 +15,7 @@ ZipDrop-web does something browsers were never supposed to do well — it compre
 
 Most file tools on the web are a wrapper around a server. You upload, they process, you download. Your files travel the internet twice and sit on someone else's machine in between.
 
-ZipDrop-web cuts all of that out. The compression algorithm runs in your browser tab. The ZIP is assembled in memory on your machine. The download is generated locally. Nothing leaves your device — not even a filename.
+ZipIt-web cuts all of that out. The compression algorithm runs in your browser tab. The ZIP is assembled in memory on your machine. The download is generated locally. Nothing leaves your device — not even a filename.
 
 It is the kind of tool that should have always existed: instant, private, and offline-capable once the page loads.
 
@@ -25,7 +25,7 @@ It is the kind of tool that should have always existed: instant, private, and of
 
 ### File Compression
 
-Drop any number of files onto the page — a mix of documents, images, code files, whatever — and ZipDrop-web bundles them into a single `.zip` archive. The file is generated in your browser and downloaded automatically. There is no upload progress bar because there is no upload.
+Drop any number of files onto the page — a mix of documents, images, code files, whatever — and ZipIt-web bundles them into a single `.zip` archive. The file is generated in your browser and downloaded automatically. There is no upload progress bar because there is no upload.
 
 ### ZIP Preview
 
@@ -47,7 +47,7 @@ The interface ships in dark mode by default and includes a full light theme. You
 
 ## How It Works
 
-ZipDrop-web is built on three files and one CDN library.
+ZipIt-web is built on three files and one CDN library.
 
 **JSZip** handles the actual compression and extraction logic. It is loaded from the Cloudflare CDN and provides a clean API for building ZIP archives from raw file data and reading them back out. Everything else in the project is vanilla browser technology.
 
@@ -75,7 +75,7 @@ The absence of a framework is intentional. There is nothing to install, nothing 
 ## Project Structure
 
 ```
-ZipDrop-web/
+ZipIt-web/
 ├── index.html
 ├── style.css
 ├── app.js
@@ -86,11 +86,11 @@ ZipDrop-web/
 
 ## Running It Locally
 
-Because ZipDrop-web is static HTML, running it is as simple as opening a file.
+Because ZipIt-web is static HTML, running it is as simple as opening a file.
 
 ```bash
-git clone https://github.com/username/ZipDrop-web.git
-cd ZipDrop-web
+git clone https://github.com/username/ZipIt-web.git
+cd ZipIt-web
 open index.html
 ```
 
@@ -113,7 +113,7 @@ The app will work identically in all cases. There is no dev server, no hot modul
 
 ## Deploying to GitHub Pages
 
-ZipDrop-web was designed to deploy to GitHub Pages in under two minutes.
+ZipIt-web was designed to deploy to GitHub Pages in under two minutes.
 
 ```bash
 git add .
@@ -131,7 +131,7 @@ Then in your repository on GitHub:
 GitHub Pages will publish the site at:
 
 ```
-https://your-username.github.io/ZipDrop-web/
+https://your-username.github.io/ZipIt-web/
 ```
 
 No build step. No Actions workflow. The files in the repository root are exactly what gets served.
@@ -142,7 +142,7 @@ No build step. No Actions workflow. The files in the repository root are exactly
 
 The core compress and extract functionality works in every modern browser. JSZip has broad compatibility and uses standard typed array APIs available across all current browsers.
 
-The Web Share API is the one exception — it is available on most mobile browsers and Chrome on desktop, but absent in Firefox. ZipDrop-web detects support at runtime and only shows the share button when the API is present, so there is no broken UI on unsupported platforms.
+The Web Share API is the one exception — it is available on most mobile browsers and Chrome on desktop, but absent in Firefox. ZipIt-web detects support at runtime and only shows the share button when the API is present, so there is no broken UI on unsupported platforms.
 
 Drag-and-drop, `localStorage`, `FileReader`, and `URL.createObjectURL` are universally supported in any browser released in the last several years.
 
@@ -162,10 +162,10 @@ Drag-and-drop, `localStorage`, `FileReader`, and `URL.createObjectURL` are unive
 
 ## Privacy
 
-ZipDrop-web does not collect data, set tracking cookies, or communicate with any server after the initial page load. The files you process never leave your machine. There is no analytics, no telemetry, and no third-party scripts beyond JSZip.
+ZipIt-web does not collect data, set tracking cookies, or communicate with any server after the initial page load. The files you process never leave your machine. There is no analytics, no telemetry, and no third-party scripts beyond JSZip.
 
 ---
 
 <p align="center">
-  <strong>ZipDrop-web</strong> &mdash; MIT License &mdash; 2024
+  <strong>ZipIt-web</strong> &mdash; MIT License &mdash; 2024
 </p>
