@@ -815,6 +815,13 @@
         function applySavedTheme() {
             var root = document.documentElement;
             var storedTheme = localStorage.getItem("zipit-theme");
+            if (!storedTheme) {
+                storedTheme = localStorage.getItem("zipdrop-theme");
+                if (storedTheme) {
+                    localStorage.setItem("zipit-theme", storedTheme);
+                    localStorage.removeItem("zipdrop-theme");
+                }
+            }
             var theme = storedTheme === "dark" ? "dark" : "light";
             root.setAttribute("data-theme", theme);
             updateThemeButtonLabel(theme);
